@@ -1,0 +1,26 @@
+# Fichiers objets (résultats de la compilation)
+*.o
+
+# Fichiers exécutables
+a.out
+simple_shell
+
+# Sauvegardes d'éditeurs
+*~
+*.swp
+*.swo
+*.bak
+
+# Dossiers spécifiques aux éditeurs
+.vscode/
+.idea/
+
+# Fichier de compilation généré par make
+Makefile
+
+# Fichiers de test ou temporaires
+test
+*.tmp
+
+# core dumps (erreurs système)
+core
