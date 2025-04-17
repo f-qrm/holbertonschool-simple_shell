@@ -2,8 +2,8 @@
 *.o
 
 # Fichiers exécutables
+*.out
 a.out
-simple_shell
 
 # Sauvegardes d'éditeurs
 *~
@@ -24,3 +24,4 @@ test
 
 # core dumps (erreurs système)
 core
+shell
