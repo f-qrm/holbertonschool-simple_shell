@@ -3,8 +3,6 @@
 
 <div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
----
-
 ## 📌 Description
 
 This project is a **simple UNIX command-line interpreter**, or shell, written in C.  
@@ -18,8 +16,6 @@ This shell project was created as part of the **Low-Level Programming** curricul
 - String parsing using `strtok`
 - Handling interactive and non-interactive modes
 
----
-
 ## ✅ Requirements
 
 - Allowed editors: `vi`, `vim`, `emacs`
@@ -31,8 +27,6 @@ This shell project was created as part of the **Low-Level Programming** curricul
 - All header files should be include guarded
 - Use **only** allowed system functions
 
----
-
 ## 🔧 Authorized Functions
 
 ```c
@@ -41,9 +35,6 @@ getcwd, getline, getpid, isatty, kill, malloc, open, opendir, perror,
 printf, fprintf, vfprintf, sprintf, putchar, read, readdir, signal, stat,
 lstat, fstat, strtok, wait, waitpid, wait3, wait4, write
 ```
-
----
-
 ## 🗃️ File Structure
 
 ```
@@ -59,9 +50,6 @@ lstat, fstat, strtok, wait, waitpid, wait3, wait4, write
 ├── .gitignore
 └── README.md
 ```
-
----
-
 ## ⚙️ Compilation
 
 You can compile the shell with:
@@ -69,9 +57,6 @@ You can compile the shell with:
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
-
----
-
 ## ▶️ Usage
 
 ### 🔹 Interactive Mode
@@ -91,9 +76,6 @@ $
 $ echo "ls -l" | ./hsh
 -rw-r--r-- 1 user user 1234 main.c
 ```
-
----
-
 ## 📚 Learning Objectives
 
 By the end of this project, you should understand:
@@ -106,8 +88,6 @@ By the end of this project, you should understand:
 - How to use `execve`, `fork`, and `wait`
 - How to detect end-of-file (EOF) and handle input modes
 
----
-
 ## 🧠 Features
 
 | Feature           | Description                               |
@@ -119,8 +99,6 @@ By the end of this project, you should understand:
 | Non-interactive   | Accepts piped input or from file          |
 | Built-ins         | Handles simple built-ins like `exit`, `env`|
 
----
-
 ## 🛠️ Example Built-ins
 
 ```bash
@@ -130,8 +108,6 @@ PATH=/usr/bin:/bin:/usr/local/bin
 ($) exit
 ```
 
----
-
 ## 📖 Manual Page
 
 You can open the custom manual page with:
@@ -139,8 +115,6 @@ You can open the custom manual page with:
 ```bash
 man ./man_1_hsh.1
 ```
-
----
 
 ## 🧪 Testing
 
@@ -154,14 +128,9 @@ echo "/bin/ls" | ./hsh
 cat test_file | ./hsh
 ```
 
----
-
 ## 👨‍💻 Authors
 
 - [@TonNomGitHub](https://github.com/TonNomGitHub)
 - [@PartenaireGitHub](https://github.com/PartenaireGitHub)
 
----
 ```
-
-Ce fichier contient désormais tout ce que tu souhaitais, y compris la structure des fichiers et les sections supplémentaires dans un seul fichier Markdown. Si tu as besoin de modifications supplémentaires, n’hésite pas à me le dire !
