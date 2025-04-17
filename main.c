@@ -1,22 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include <unistd.h>
 #include "shell.h"
+
 /**
  * main - entry point for the simple_shell program
  *
- * Reads and executes commands until EOF or interruption.
- * Uses interactive mode detection to display prompt when appropriate.
- * Return: EXIT_SUCCESS on normal termination
+ * Return: EXIT_SUCCESS on success
  */
 int main(void)
 {
 	char *line;
 	char **args;
 	int interactive = is_interactive();
+	int ac;
 
 	while (1)
 	{
@@ -30,13 +28,29 @@ int main(void)
 				putchar('\n');
 			break;
 		}
-		if (line[0] != '\0')
+
+		args = parse_line(line);
+		if (args && args[0])
 		{
-			args = parse_line(line);
-			execute_command(args);
-			free(args);
+			if (strcmp(args[0], "which") == 0)
+			{
+				ac = 0;
+				while (args[ac])
+					ac++;
+				if (ac > 1)
+					_which(ac, args);
+				else
+					printf("Usage: which <command1> <command2> ...\n");
+			}
+			else
+			{
+				execute_command(args);
+			}
 		}
+
+		free(args);
 		free(line);
 	}
+
 	return (EXIT_SUCCESS);
 }
