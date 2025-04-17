@@ -187,5 +187,5 @@ Test the shell in both modes:
 
 ## 🧑‍💻 Authors
 
-<pre>Fjolla (https://github.com/f-qrm)
-Alexis (https://github.com/alexiscnl)</pre>
+- Fjolla [@Fjolla-github](https://github.com/f-qrm)
+- Alexis [Alexis-github](https://github.com/alexiscnl)
