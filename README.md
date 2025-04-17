@@ -8,6 +8,7 @@
 - [Requirements](#requirements)
 - [Authorized Functions](#-authorized-functions)
 - [File Structure](#file-structure)
+- [Compilation](#compilation)
 - [Manual Page](#-manual-page)
 - [Usage](#usage)
 - [Interactive Mode](#-interactive-mode)
@@ -100,54 +101,54 @@ This shell project was created as part of the **Low-Level Programming** curricul
 
 ---
 
-## ⚙️ Compilation
+##  Compilation
 
 You can compile the shell with:
-
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-
+```
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o shell
+```
 ## Usage
 
 ### 🔹 Interactive Mode
-
-<pre>$ ./hsh
+```
+<pre>$ ./shell
 ($) ls -l
 total 16
 -rw-r--r-- 1 user user 1234 main.c
 ($) exit</pre>
-
+```
 ---
 
 ### 🔹 Non-Interactive Mode
-
-<pre> $ echo "ls -l" | ./hsh
+```
+<pre> $ echo "ls -l" | ./shell
 total 16
 -rw-r--r-- 1 user user 1234 main.c</pre>
-
+```
 ---
 ## 🧪 Testing
 Test the shell in both modes:
 
 ##### Interactive:
-
-  <pre>$ ./hsh
+```
+  <pre>$ ./shell
   ($) ls
   ($) /bin/ls
   ($) exit</pre>
-
+```
 ##### Non-Interactive:
-
-  $ echo "/bin/ls" | ./hsh
+```
+  $ echo "/bin/ls" | ./shell
   file1  file2  shell
-
+```
 ##### Using a file:
-
+```
   $ cat commands.txt
   ls
   env
   exit
-  $ ./hsh < commands.txt
-
+  $ ./shell < commands.txt
+```
 ## 📚 Learning Objectives
 
 By completing this project, you will be able to:
@@ -177,13 +178,13 @@ By completing this project, you will be able to:
 --- 
 
 ##  Example Built-ins
-
+```
 <pre>($) env
 PATH=/usr/local/bin:/usr/bin:/bin
 HOME=/home/user
 PWD=/home/user/shell
 ($) exit</pre>
-
+```
 --- 
 
 ## 📖 Manual Page
