@@ -53,49 +53,22 @@ char *read_line(void)
  */
 char **parse_line(char *line)
 {
-	char *cmd = strtok(line, " ");
-	char **argv;
+	int bufsize = 64, pos = 0;
+	char **tokens = malloc(bufsize * sizeof(char *));
+	char *token;
 
-	if (cmd == NULL)
-		return (NULL);
-
-	argv = malloc(2 * sizeof(char *));
-	if (argv == NULL)
+	if (!tokens)
 	{
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
-	argv[0] = cmd;
-	argv[1] = NULL;
 
-	return (argv);
-}
-
-/**
- * execute_command - forks a child process and executes a command
- * @args: NULL-terminated array of arguments
- */
-void execute_command(char **args)
-{
-	pid_t pid;
-	int status;
-
-	pid = fork();
-	if (pid == -1)
+	token = strtok(line, " \t");
+	while (token && pos < bufsize - 1)
 	{
-		perror("fork");
-		return;
+		tokens[pos++] = token;
+		token = strtok(NULL, " \t");
 	}
-
-	if (pid == 0)
-	{
-		execve(args[0], args, environ);
-		perror("execve");
-		_exit(EXIT_FAILURE);
-	}
-	else
-	{
-		if (waitpid(pid, &status, 0) == -1)
-			perror("waitpid");
-	}
+	tokens[pos] = NULL;
+	return (tokens);
 }
