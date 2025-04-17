@@ -4,69 +4,39 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-extern char **environ;
+#include "shell.h"
 /**
+ * main - entry point for the simple_shell program
  *
- *
- *
+ * Reads and executes commands until EOF or interruption.
+ * Uses interactive mode detection to display prompt when appropriate.
+ * Return: EXIT_SUCCESS on normal termination
  */
 int main(void)
 {
-	pid_t pid;
-	int status, i;
-	ssize_t nread;
-	size_t len = 0;
-	char *token;
-	char *line = NULL;
-	char *argv[2];
+	char *line;
+	char **args;
+	int interactive = is_interactive();
 
 	while (1)
 	{
+		if (interactive)
+			display_prompt();
 
-		printf("┌∩┐(◣_◢)┌∩┐ ");
-		fflush(stdout);
-
-		nread = getline(&line, &len, stdin);
-
-		if (nread == -1)
+		line = read_line();
+		if (!line)
 		{
+			if (interactive)
+				putchar('\n');
 			break;
 		}
-		if (line[nread - 1] == '\n')
+		if (line[0] != '\0')
 		{
-			line[nread - 1] = '\0';
+			args = parse_line(line);
+			execute_command(args);
+			free(args);
 		}
-		token = strtok(line, " ");
-		if (line[0] == '\0')
-		{
-			continue;
-		}
-		pid = fork();
-
-		if (pid == -1)
-		{
-			perror("Error");
-			return (1);
-		}
-		if (pid == 0)
-		{
-			i = 0;
-			while (token != NULL && i < 63)
-			{
-				argv[i++] = token;
-				token = strtok(NULL, " ");
-			}
-			argv[i] = NULL;
-
-			execve(argv[0], argv, environ);
-			perror("Error");
-			return (1);
-		}
-		else
-		{
-			wait(&status);
-		}
+		free(line);
 	}
-	free(line);
-	return (0);
+	return (EXIT_SUCCESS);
 }
