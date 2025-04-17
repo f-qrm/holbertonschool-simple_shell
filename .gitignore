@@ -1,26 +1,24 @@
-# Fichiers objets (résultats de la compilation)
-*.o
+# Ignorer le dossier test
+test/
 
-# Fichiers exécutables
+
+# Ignorer les fichiers compilés (exécutables)
 a.out
-simple_shell
+*.o
+*.out
+*.exe
 
-# Sauvegardes d'éditeurs
-*~
-*.swp
-*.swo
-*.bak
+# Ignorer tous les fichiers sans extension (considérés comme exécutables)
+[^.]*
 
-# Dossiers spécifiques aux éditeurs
-.vscode/
-.idea/
 
-# Fichier de compilation généré par make
-Makefile
 
-# Fichiers de test ou temporaires
-test
-*.tmp
+# Autoriser les fichiers source et README
+!*.c
+!*.h
+!README.md
+# Ignorer uniquement la fonction print (non autorisée dans le repo)
+binary_tree_print.c
 
-# core dumps (erreurs système)
-core
+# Ne pas ignorer les dossiers (pour permettre le suivi des fichiers dans les dossiers)
+!*/
