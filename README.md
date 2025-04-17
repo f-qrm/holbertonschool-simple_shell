@@ -2,6 +2,21 @@
 
 <div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
+## Table of Contents {#table-of-contents}
+
+- [Description](#-description)
+- [Requirements](#requirements)
+- [Authorized Functions](#-authorized-functions)
+- [File Structure](#file-structure)
+- [Manual Page](#-manual-page)
+- [Usage](#usage)
+- [Interactive Mode](#-interactive-mode)
+- [Non-Interactive Mode](#-non-interactive-mode)
+- [Learning Objectives](#-learning-objectives)
+- [Features](#-features)
+- [Flowchart](#-flowchart)
+- [Testing](#-testing)
+  
 ## 📌 Description
 
 This project is a **simple UNIX command-line interpreter**, or shell, written in C.  
@@ -25,10 +40,6 @@ This shell project was created as part of the **Low-Level Programming** curricul
 - Max 5 functions per file
 - All header files should be include guarded
 - Use **only** allowed system functions
-
-## GitHub
-
-There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.
 
 ---
 
@@ -73,7 +84,7 @@ There should be one project repository per group. If you clone/fork/whatever a p
 
 ---
 
-## 🗃️ File Structure
+## File Structure
 
 - ├── main.c             # Entry point, handles the shell loop
 - ├── prompt.c           # Prompt logic (display and read input)
@@ -95,7 +106,7 @@ You can compile the shell with:
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-## ▶️ Usage
+## Usage
 
 ### 🔹 Interactive Mode
 
@@ -114,6 +125,28 @@ total 16
 -rw-r--r-- 1 user user 1234 main.c</pre>
 
 ---
+## 🧪 Testing
+Test the shell in both modes:
+
+##### Interactive:
+
+  <pre>$ ./hsh
+  ($) ls
+  ($) /bin/ls
+  ($) exit</pre>
+
+##### Non-Interactive:
+
+  $ echo "/bin/ls" | ./hsh
+  file1  file2  shell
+
+##### Using a file:
+
+  $ cat commands.txt
+  ls
+  env
+  exit
+  $ ./hsh < commands.txt
 
 ## 📚 Learning Objectives
 
@@ -143,7 +176,7 @@ By completing this project, you will be able to:
 
 --- 
 
-## 🛠️ Example Built-ins
+##  Example Built-ins
 
 <pre>($) env
 PATH=/usr/local/bin:/usr/bin:/bin
@@ -154,36 +187,47 @@ PWD=/home/user/shell
 --- 
 
 ## 📖 Manual Page
-You can view the manual for this shell with:
 
-man ./man_1_hsh.1
+## Prerequisites
 
+- **Git**  
+- **Superuser (root)** access  
+- **Basic terminal** knowledge  
+
+## Installation Steps
+
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
 ---
 
-## 🧪 Testing
-Test the shell in both modes:
+#### 2. Prepare the Installation Script
+```bash
+chmod +x install_man_page.sh
+```
+#### 3. Run the Installation Script
+```bash
+sudo ./install_man_page.sh
+```
+#### Verifying Installation
+```bash
+man myshell
+```
+### Troubleshooting
+- Ensure necessary permissions
+- Verify script location
+- Check `mandb` installation
 
-##### Interactive:
-
-  <pre>$ ./hsh
-  ($) ls
-  ($) /bin/ls
-  ($) exit</pre>
-
-##### Non-Interactive:
-
-  $ echo "/bin/ls" | ./hsh
-  file1  file2  shell
-
-##### Using a file:
-
-  $ cat commands.txt
-  ls
-  env
-  exit
-  $ ./hsh < commands.txt
+### Uninstallation
+```bash
+sudo rm /usr/local/share/man/man1/myshell.1.gz
+sudo mandb
+```
+## 🔄 Flowchart
 
 --------------
+
 
 ## 🧑‍💻 Authors
 
