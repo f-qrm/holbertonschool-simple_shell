@@ -1,0 +1,52 @@
+MYSHELL(1)                               MyShell 1.0                               MYSHELL(1)
+
+NAME
+       myshell — minimal and extensible shell
+
+SYNOPSIS
+       myshell [options]
+
+DESCRIPTION
+       MyShell is a POSIX‑style shell providing a basic environment with:
+           • Command history and navigation
+           • Tab completion for files and built‑in commands
+           • Input/output redirection and pipelines (|, >, <, 2>)
+           • Built‑in commands cd, exit, help
+
+       Other commands are executed as in any standard shell.
+
+OPTIONS
+       -h, --help
+              Display this help and exit.
+
+       -v, --version
+              Display the version and exit.
+
+BUILT‑IN COMMANDS
+       cd [directory]
+              Change the current working directory.
+
+       exit [status]
+              Exit the shell with the specified exit code (default: 0).
+
+       help [command]
+              Display help for built‑in commands or general usage.
+
+CONFIGURATION FILE
+       On startup, MyShell reads ~/.myshellrc to customize:
+           • The prompt (PS1 variable)
+           • Aliases (one definition per line, e.g., alias ll='ls -la')
+
+EXAMPLES
+       $ myshell
+       myshell> cd /var/log
+       myshell> ls | grep error
+       myshell> exit 0
+
+AUTHOR
+       Fjolla
+	   Alexis
+
+BUGS
+       Report bugs at:
+       https://github.com/Alexiscnl
