@@ -26,11 +26,12 @@ int main(void)
 		{
 			if (interactive)
 				putchar('\n');
-			break;
-		}
+			break; }
 		args = parse_line(line);
 		if (args && args[0])
 		{
+			if (args[0] == "exit")
+				break;
 			if (strcmp(args[0], "which") == 0)
 			{
 				ac = 0;
@@ -44,7 +45,6 @@ int main(void)
 			else
 				execute_command(args);
 		}
-
 		free(args);
 		free(line);
 	}
