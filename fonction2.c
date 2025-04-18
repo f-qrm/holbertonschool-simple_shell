@@ -77,3 +77,24 @@ void execute_command(char **args)
 			perror("waitpid");
 	}
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "shell.h"
+
+/**
+ * handle_exit - Handles the "exit" command in the shell
+ * @args: Argument array (command and optional exit status)
+ * @line: Input line read from the user (to be freed)
+ */
+void handle_exit(char **args, char *line)
+{
+	int exit_code = 0;
+
+	if (args[1])
+		exit_code = atoi(args[1]);
+
+	free(args);
+	free(line);
+	exit(exit_code);
+}

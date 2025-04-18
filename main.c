@@ -30,9 +30,11 @@ int main(void)
 		args = parse_line(line);
 		if (args && args[0])
 		{
-			if (args[0] == "exit")
-				break;
-			if (strcmp(args[0], "which") == 0)
+			if (strcmp(args[0], "exit") == 0)
+			{
+				handle_exit(args, line);
+			}
+			else if (strcmp(args[0], "which") == 0)
 			{
 				ac = 0;
 				while (args[ac])
