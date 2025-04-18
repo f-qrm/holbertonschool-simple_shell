@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-
 /**
  * is_interactive - checks if shell is running in interactive mode
  * Return: 1 if standard input is a terminal, 0 otherwise

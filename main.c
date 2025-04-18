@@ -22,13 +22,12 @@ int main(void)
 			display_prompt();
 
 		line = read_line();
-		if (!line)
+		if (line == NULL)
 		{
 			if (interactive)
 				putchar('\n');
 			break;
 		}
-
 		args = parse_line(line);
 		if (args && args[0])
 		{
@@ -43,14 +42,11 @@ int main(void)
 					printf("Usage: which <command1> <command2> ...\n");
 			}
 			else
-			{
 				execute_command(args);
-			}
 		}
 
 		free(args);
 		free(line);
 	}
-
 	return (EXIT_SUCCESS);
 }
