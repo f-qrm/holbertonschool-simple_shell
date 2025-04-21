@@ -6,6 +6,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include "shell.h"
+#include <signal.h>
 /**
  * search_path_and_exec - Searches for a command in the PATH
  * and returns the full path if found

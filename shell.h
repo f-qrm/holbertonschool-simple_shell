@@ -13,6 +13,7 @@ char **parse_line(char *line);
 void execute_command(char **args);
 int _which(int ac, char **av);
 char *get_path(void);
+char *search_path(char *cmd);
 void handle_exit(char **args, char *line);
 
 #endif /* SHELL_H */

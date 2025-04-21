@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "shell.h"
-
+#include <signal.h>
 /**
  * main - entry point for the simple_shell program
  *
@@ -26,7 +26,8 @@ int main(void)
 		{
 			if (interactive)
 				putchar('\n');
-			break; }
+			break;
+		}
 		args = parse_line(line);
 		if (args && args[0])
 		{
