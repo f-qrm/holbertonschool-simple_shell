@@ -92,7 +92,9 @@ void handle_exit(char **args, char *line)
 	int exit_code = 0;
 
 	if (args[1])
+	{	
 		exit_code = atoi(args[1]);
+	}
 
 	free(args);
 	free(line);
