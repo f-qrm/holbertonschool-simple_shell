@@ -46,7 +46,7 @@ int main(void)
 			}
 			else if (strcmp(args[0], "env") == 0)
 			{
-				handle_env();
+				handle_env(args);
 			}
 			else
 				execute_command(args);
