@@ -105,16 +105,9 @@ void execute_command(char **args)
  */
 void handle_exit(char **args, char *line)
 {
-	int exit_code = 0;
-
-	if (args[1])
-	{	
-		exit_code = atoi(args[1]);
-	}
-
 	free(args);
 	free(line);
-	exit(exit_code);
+	exit(0);
 }
 /**
  * handle_env - Handles the "env" built-in command
