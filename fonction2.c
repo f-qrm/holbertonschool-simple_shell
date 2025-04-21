@@ -112,11 +112,14 @@ void handle_exit(char **args, char *line)
 /**
  *
  *
- * 
+ *
  */
-void handle_env(void)
+void handle_env(char **args)
 {
 	int i = 0;
+
+	if (args[1] != NULL)
+		return;
 
 	while (environ[i])
 	{
