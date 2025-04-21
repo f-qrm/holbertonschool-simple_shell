@@ -64,7 +64,6 @@ void execute_command(char **args)
 	int status;
 	char *cmd_path = NULL;
 
-	/* Si commande contient '/' -> on teste directement */
 	if (strchr(args[0], '/'))
 	{
 		if (access(args[0], X_OK) == 0)
@@ -106,12 +105,7 @@ void execute_command(char **args)
  */
 void handle_exit(char **args, char *line)
 {
-	int exit_code = 0;
-
-	if (args[1])
-		exit_code = atoi(args[1]);
-
 	free(args);
 	free(line);
-	exit(exit_code);
+	exit(0);
 }
