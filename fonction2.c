@@ -69,16 +69,16 @@ void execute_command(char **args)
 		if (access(args[0], X_OK) == 0)
 		{
 			cmd_path = malloc(strlen(args[0]) + 1);
-			if (cmd_path)
+			if (cmd_path != NULL)
 				strcpy(cmd_path, args[0]);
 		}
 	}
 	else
 	{
 		cmd_path = search_path(args[0]); }
-	if (!cmd_path)
+	if (cmd_path == NULL)
 	{
-		fprintf(stderr, "%s: Command not found\n", args[0]);
+		fprintf(stderr, "%s : Command not found\n", args[0]);
 		return; }
 	pid = fork();
 	if (pid == -1)
@@ -110,9 +110,13 @@ void handle_exit(char **args, char *line)
 	exit(0);
 }
 /**
+ * handle_env - Handles the "env" built-in command
+ * @args: Argument array (should contain only "env")
  *
+ * Description: Prints all environment variables if called without arguments.
+ * If any argument is passed (e.g., "env something"), the function does nothing.
  *
- *
+ * Return: Nothing
  */
 void handle_env(char **args)
 {
