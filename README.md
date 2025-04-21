@@ -17,6 +17,7 @@
 - [Features](#-features)
 - [Flowchart](#-flowchart)
 - [Testing](#-testing)
+- [Authors](#-authors)
   
 ## 📌 Description
 

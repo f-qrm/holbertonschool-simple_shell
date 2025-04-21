@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "shell.h"
-
+#include <signal.h>
 /**
  * main - entry point for the simple_shell program
  *
@@ -26,14 +26,14 @@ int main(void)
 		{
 			if (interactive)
 				putchar('\n');
-			break; }
+			break;
+		}
 		args = parse_line(line);
 		if (args && args[0])
 		{
 			if (strcmp(args[0], "exit") == 0)
-			{
 				handle_exit(args, line);
-			}
+
 			else if (strcmp(args[0], "which") == 0)
 			{
 				ac = 0;
@@ -43,6 +43,10 @@ int main(void)
 					_which(ac, args);
 				else
 					printf("Usage: which <command1> <command2> ...\n");
+			}
+			else if (strcmp(args[0], "env") == 0)
+			{
+				handle_env(args);
 			}
 			else
 				execute_command(args);
