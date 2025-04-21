@@ -114,7 +114,7 @@ void handle_exit(char **args, char *line)
 
 	free(args);
 	free(line);
-	exit(0);
+	exit(exit_code);
 }
 /**
  * handle_env - Handles the "env" built-in command
