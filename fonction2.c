@@ -109,3 +109,18 @@ void handle_exit(char **args, char *line)
 	free(line);
 	exit(0);
 }
+/**
+ *
+ *
+ * 
+ */
+void handle_env(void)
+{
+	int i = 0;
+
+	while (environ[i])
+	{
+		printf("%s\n", environ[i]);
+		i++;
+	}
+}
