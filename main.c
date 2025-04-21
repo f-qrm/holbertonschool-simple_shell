@@ -32,9 +32,8 @@ int main(void)
 		if (args && args[0])
 		{
 			if (strcmp(args[0], "exit") == 0)
-			{
 				handle_exit(args, line);
-			}
+
 			else if (strcmp(args[0], "which") == 0)
 			{
 				ac = 0;
@@ -44,6 +43,10 @@ int main(void)
 					_which(ac, args);
 				else
 					printf("Usage: which <command1> <command2> ...\n");
+			}
+			else if (strcmp(args[0], "env") == 0)
+			{
+				handle_env();
 			}
 			else
 				execute_command(args);

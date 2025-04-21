@@ -15,5 +15,6 @@ int _which(int ac, char **av);
 char *get_path(void);
 char *search_path(char *cmd);
 void handle_exit(char **args, char *line);
+void handle_env(void);
 
 #endif /* SHELL_H */
