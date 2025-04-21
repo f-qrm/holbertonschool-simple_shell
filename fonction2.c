@@ -88,13 +88,10 @@ void execute_command(char **args)
 		return; }
 	if (pid == 0)
 	{
-		if (execve(cmd_path, args, environ) == -1);
-		{
-			perror("execve");
-			free(cmd_path);
-			_exit(EXIT_FAILURE);
-		}
-	}
+		execve(cmd_path, args, environ);
+		perror("execve");
+		free(cmd_path);
+		_exit(EXIT_FAILURE); }
 	else
 	{
 		free(cmd_path);
