@@ -131,25 +131,14 @@ total 16
 Test the shell in both modes:
 
 ##### Interactive:
-```
-  $ ./shell
-  ($) ls
-  ($) /bin/ls
-  ($) exit
-```
+
+<img src="https://raw.githubusercontent.com/f-qrm/holbertonschool-simple_shell/main/Capture%20d'%C3%A9cran%202025-04-22%20094836.png" alt="Non-Interactive Example" width="600"/>
+
 ##### Non-Interactive:
-```
-  $ echo "/bin/ls" | ./shell
-  file1  file2  shell
-```
-##### Using a file:
-```
-  $ cat commands.txt
-  ls
-  env
-  exit
-  $ ./shell < commands.txt
-```
+
+<img src="https://raw.githubusercontent.com/f-qrm/holbertonschool-simple_shell/main/Capture%20d'%C3%A9cran%202025-04-22%20095117.png" alt="Flowchart simple_shell" width="600"/>
+
+
 ## 📚 Learning Objectives
 
 By completing this project, you will be able to:
@@ -200,8 +189,8 @@ PWD=/home/user/shell
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/f-qrm/holbertonschool-simple_shell.git
+   cd holbertonschool-simple_shell
 ---
 
 #### 2. Prepare the Installation Script
@@ -228,7 +217,6 @@ sudo mandb
 ```
 ## 🔄 Flowchart
 
---------------
 
 
 ## 🧑‍💻 Authors
