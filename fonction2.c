@@ -77,7 +77,6 @@ int execute_command(char **args)
 	if (cmd_path == NULL)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-		free(cmd_path);
 		exit(127); }
 	pid = fork();
 	if (pid == -1)
