@@ -132,10 +132,10 @@ Test the shell in both modes:
 
 ##### Interactive:
 ```
-  <pre>$ ./shell
+  $ ./shell
   ($) ls
   ($) /bin/ls
-  ($) exit</pre>
+  ($) exit
 ```
 ##### Non-Interactive:
 ```
