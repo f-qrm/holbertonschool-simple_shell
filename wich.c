@@ -52,7 +52,7 @@ int _which(int ac, char **av)
 	if (!path)
 	{
 		fprintf(stderr, "PATH not found\n");
-		return (1); }
+		return (0); }
 	printf("PATH = %s\n", path);
 	for (i = 1; i < ac; i++)
 	{
