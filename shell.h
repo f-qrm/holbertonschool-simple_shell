@@ -10,11 +10,11 @@ int is_interactive(void);
 void display_prompt(void);
 char *read_line(void);
 char **parse_line(char *line);
-void execute_command(char **args);
+int execute_command(char **args);
 int _which(int ac, char **av);
 char *get_path(void);
 char *search_path(char *cmd);
-void handle_exit(char **args, char *line);
+void handle_exit(char **args, char *line, int last_status);
 void handle_env(char **args);
 
 #endif /* SHELL_H */

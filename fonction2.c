@@ -8,10 +8,9 @@
 #include "shell.h"
 #include <signal.h>
 /**
- * search_path_and_exec - Searches for a command in the PATH
+ * search_path - Searches for a command in the PATH
  * and returns the full path if found
  * @cmd: Command name (e.g., "ls")
- *
  * Return: A malloc'd string containing the full path to the command
  * if found, or NULL if not found or on error.
  */
@@ -58,7 +57,7 @@ char *search_path(char *cmd)
  *
  * Return: Nothing. Handles process creation and error messages.
  */
-void execute_command(char **args)
+int execute_command(char **args)
 {
 	pid_t pid;
 	int status;
@@ -70,8 +69,7 @@ void execute_command(char **args)
 		{
 			cmd_path = malloc(strlen(args[0]) + 1);
 			if (cmd_path != NULL)
-				strcpy(cmd_path, args[0]);
-		}
+				strcpy(cmd_path, args[0]); }
 	}
 	else
 	{
@@ -79,13 +77,13 @@ void execute_command(char **args)
 	if (cmd_path == NULL)
 	{
 		fprintf(stderr, "%s : Command not found\n", args[0]);
-		return; }
+		return (127); }
 	pid = fork();
 	if (pid == -1)
 	{
 		perror("fork");
 		free(cmd_path);
-		return; }
+		return (1); }
 	if (pid == 0)
 	{
 		execve(cmd_path, args, environ);
@@ -96,26 +94,36 @@ void execute_command(char **args)
 	{
 		free(cmd_path);
 		if (waitpid(pid, &status, 0) == -1)
-			perror("waitpid"); }
+		{
+			perror("waitpid");
+			return (1); }
+		return (WEXITSTATUS(status)); }
 }
+
 /**
  * handle_exit - Handles the "exit" command in the shell
  * @args: Argument array (command and optional exit status)
  * @line: Input line read from the user (to be freed)
+ *  @last_status: The exit status of the last executed
+ * command, used if no status is given.
  */
-void handle_exit(char **args, char *line)
+void handle_exit(char **args, char *line, int last_status)
 {
+	int exit_status = last_status;
+
+	if (args[1] != NULL)
+		exit_status = (atoi(args[1]));
 	free(args);
 	free(line);
-	exit(0);
+	exit(exit_status);
 }
 /**
  * handle_env - Handles the "env" built-in command
  * @args: Argument array (should contain only "env")
  *
  * Description: Prints all environment variables if called without arguments.
- * If any argument is passed (e.g., "env something"), the function does nothing.
- *
+ * If any argument is passed (e.g., "env something"),
+ * the function does nothing.
  * Return: Nothing
  */
 void handle_env(char **args)

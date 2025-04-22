@@ -14,7 +14,7 @@ int main(void)
 	char *line;
 	char **args;
 	int interactive = is_interactive();
-	int ac;
+	int ac, last_status = 0;
 
 	while (1)
 	{
@@ -32,7 +32,7 @@ int main(void)
 		if (args && args[0])
 		{
 			if (strcmp(args[0], "exit") == 0)
-				handle_exit(args, line);
+				handle_exit(args, line, last_status);
 
 			else if (strcmp(args[0], "which") == 0)
 			{
