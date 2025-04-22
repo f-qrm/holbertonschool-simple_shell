@@ -49,7 +49,7 @@ int main(void)
 				handle_env(args);
 			}
 			else
-				execute_command(args);
+				last_status = execute_command(args);
 		}
 		free(args);
 		free(line);
