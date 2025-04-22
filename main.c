@@ -20,20 +20,17 @@ int main(void)
 	{
 		if (interactive)
 			display_prompt();
-
 		line = read_line();
 		if (line == NULL)
 		{
 			if (interactive)
 				putchar('\n');
-			break;
-		}
+			break; }
 		args = parse_line(line);
 		if (args && args[0])
 		{
 			if (strcmp(args[0], "exit") == 0)
 				handle_exit(args, line, last_status);
-
 			else if (strcmp(args[0], "which") == 0)
 			{
 				ac = 0;
@@ -42,12 +39,10 @@ int main(void)
 				if (ac > 1)
 					_which(ac, args);
 				else
-					printf("Usage: which <command1> <command2> ...\n");
-			}
+					printf("Usage: which <command1> <command2> ...\n"); }
 			else if (strcmp(args[0], "env") == 0)
 			{
-				handle_env(args);
-			}
+				handle_env(args); }
 			else
 				last_status = execute_command(args);
 		}
