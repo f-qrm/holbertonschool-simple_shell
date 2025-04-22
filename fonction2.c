@@ -72,11 +72,10 @@ int execute_command(char **args)
 				strcpy(cmd_path, args[0]); }
 	}
 	else
-	{
-		cmd_path = search_path(args[0]); }
+		cmd_path = search_path(args[0]);
 	if (cmd_path == NULL)
 	{
-		fprintf(stderr, "%s : Command not found\n", args[0]);
+		fprintf(stderr, "./hsh: 1: %s : not found\n", args[0]);
 		return (127); }
 	pid = fork();
 	if (pid == -1)

@@ -17,6 +17,7 @@ a.out
 !*.c
 !*.h
 !README.md
+!Authors.sh
 # Ignorer uniquement la fonction print (non autorisée dans le repo)
 binary_tree_print.c
 
