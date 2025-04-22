@@ -112,19 +112,19 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o shell
 
 ### 🔹 Interactive Mode
 ```
-<pre>$ ./shell
+$ ./shell
 ($) ls -l
 total 16
 -rw-r--r-- 1 user user 1234 main.c
-($) exit</pre>
+($) exit
 ```
 ---
 
 ### 🔹 Non-Interactive Mode
 ```
-<pre> $ echo "ls -l" | ./shell
+$ echo "ls -l" | ./shell
 total 16
--rw-r--r-- 1 user user 1234 main.c</pre>
+-rw-r--r-- 1 user user 1234 main.c
 ```
 ---
 ## 🧪 Testing
@@ -132,10 +132,10 @@ Test the shell in both modes:
 
 ##### Interactive:
 ```
-  <pre>$ ./shell
+  $ ./shell
   ($) ls
   ($) /bin/ls
-  ($) exit</pre>
+  ($) exit
 ```
 ##### Non-Interactive:
 ```
