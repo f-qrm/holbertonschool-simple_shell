@@ -132,9 +132,8 @@ void handle_env(char **args)
 	if (args[1] != NULL)
 		return;
 
-	while (environ[i])
+	for (; environ[i]; i++)
 	{
 		printf("%s\n", environ[i]);
-		i++;
 	}
 }

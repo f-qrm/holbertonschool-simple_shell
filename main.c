@@ -16,7 +16,6 @@ int main(void)
 	int interactive = is_interactive();
 	int last_status = 0;
 
-	signal(SIGINT, SIG_IGN);
 	while (1)
 	{
 		if (interactive)
