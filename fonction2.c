@@ -16,7 +16,7 @@
  */
 char *search_path(char *cmd)
 {
-	char *path = get_path(), *copy, *token;
+	char *path = get_path(), *token;
 	char full_path[1024];
 	char *result = NULL;
 
@@ -28,16 +28,8 @@ char *search_path(char *cmd)
 		return (NULL);
 	}
 
-	copy = malloc(strlen(path) + 1);
-	if (!copy)
-	{
-		free(path);
-		return (NULL);
-	}
-	strcpy(copy, path);
-	free(path);
 
-	token = strtok(copy, ":");
+	token = strtok(path, ":");
 	while (token)
 	{
 		if (token[0] == '\0')
@@ -53,7 +45,7 @@ char *search_path(char *cmd)
 		}
 		token = strtok(NULL, ":");
 	}
-	free(copy);
+	free(path);
 	return (result);
 }
 /**
