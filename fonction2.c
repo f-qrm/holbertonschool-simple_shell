@@ -54,7 +54,7 @@ char *search_path(char *cmd)
  * @shell_name: take the programe name.
  * Return: Nothing. Handles process creation and error messages.
  */
-int execute_command(char **args, char *shell_name)
+int execute_command(char **args)
 {
 	pid_t pid;
 	int status;
@@ -72,7 +72,7 @@ int execute_command(char **args, char *shell_name)
 		cmd_path = search_path(args[0]);
 	if (cmd_path == NULL)
 	{
-		fprintf(stderr, "%s: 1: %s: not found\n", shell_name, args[0]);
+		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
 		return (127); }
 	pid = fork();
 	if (pid == -1)
