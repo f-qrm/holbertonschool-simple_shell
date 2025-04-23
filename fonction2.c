@@ -28,7 +28,6 @@ char *search_path(char *cmd)
 		return (NULL);
 	}
 
-
 	token = strtok(path, ":");
 	while (token)
 	{
@@ -86,7 +85,7 @@ int execute_command(char **args)
 		execve(cmd_path, args, environ);
 		perror("execve");
 		free(cmd_path);
-		_exit(EXIT_FAILURE); }
+		exit(EXIT_FAILURE); }
 	else
 	{
 		free(cmd_path);
