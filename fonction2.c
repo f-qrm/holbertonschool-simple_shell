@@ -20,7 +20,9 @@ char *search_path(char *cmd)
 	char full_path[1024];
 	char *result = NULL;
 
-	if (!path || *path == '\0')
+	if (!cmd)
+		return (NULL);
+	if (!path || path[0] == '\0')
 	{
 		free(path);
 		return (NULL);
