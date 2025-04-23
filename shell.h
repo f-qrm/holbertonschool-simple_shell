@@ -10,7 +10,7 @@ int is_interactive(void);
 void display_prompt(void);
 char *read_line(void);
 char **parse_line(char *line);
-int execute_command(char **args);
+int execute_command(char **args, char *shell_name);
 int _which(int ac, char **av);
 char *get_path(void);
 char *search_path(char *cmd);

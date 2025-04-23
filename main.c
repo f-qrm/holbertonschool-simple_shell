@@ -44,7 +44,7 @@ int main(void)
 			{
 				handle_env(args); }
 			else
-				last_status = execute_command(args);
+				last_status = execute_command(args, args[0]);
 		}
 		free(args);
 		free(line);
