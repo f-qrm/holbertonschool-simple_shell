@@ -64,6 +64,7 @@ int _which(int ac, char **av)
 		token = strtok(path_copy, ":");
 		while (token != NULL)
 		{
+			printf("Testing: %s/%s\n", token, av[i]);
 			snprintf(full_path, sizeof(full_path), "%s/%s", token, av[i]);
 			if (stat(full_path, &st) == 0)
 			{

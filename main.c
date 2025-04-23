@@ -14,7 +14,7 @@ int main(void)
 	char *line;
 	char **args;
 	int interactive = is_interactive();
-	int last_status = 0;
+	int ac, last_status = 0;
 
 	while (1)
 	{
@@ -33,8 +33,11 @@ int main(void)
 				handle_exit(args, line, last_status);
 			else if (strcmp(args[0], "which") == 0)
 			{
-				if (args[1])
-					_which(0, args);
+				ac = 0;
+				while (args[ac])
+					ac++;
+				if (ac > 1)
+					_which(ac, args);
 				else
 					printf("Usage: which <command1> <command2> ...\n"); }
 			else if (strcmp(args[0], "env") == 0)
@@ -43,12 +46,8 @@ int main(void)
 			else
 				last_status = execute_command(args);
 		}
-		else
-		{
-			free(args);
-			free(line);
-			continue; }
 		free(args);
-		free(line); }
+		free(line);
+	}
 	return (EXIT_SUCCESS);
 }

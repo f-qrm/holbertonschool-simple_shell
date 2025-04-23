@@ -20,21 +20,16 @@ char *search_path(char *cmd)
 	char full_path[1024];
 	char *result = NULL;
 
-	if (!cmd)
-		return (NULL);
-	if (!path || path[0] == '\0')
+	if (!path)
 	{
-		free(path);
 		return (NULL);
 	}
+
 
 	token = strtok(path, ":");
 	while (token)
 	{
-		if (token[0] == '\0')
-			sprintf(full_path, "./%s", cmd);
-		else
-			sprintf(full_path, "%s/%s", token, cmd);
+		sprintf(full_path, "%s/%s", token, cmd);
 		if (access(full_path, X_OK) == 0)
 		{
 			result = malloc(strlen(full_path) + 1);
@@ -51,7 +46,7 @@ char *search_path(char *cmd)
  * execute_command - Executes a command by forking and calling execve
  * if the command exists either directly or through PATH resolution
  * @args: Array of command arguments (e.g., {"ls", "-l", NULL})
- * @shell_name: take the programe name.
+ *
  * Return: Nothing. Handles process creation and error messages.
  */
 int execute_command(char **args)
@@ -73,18 +68,19 @@ int execute_command(char **args)
 	if (cmd_path == NULL)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-		return (127); }
+		exit(127); }
 	pid = fork();
 	if (pid == -1)
 	{
 		perror("fork");
+		free(cmd_path);
 		return (1); }
 	if (pid == 0)
 	{
 		execve(cmd_path, args, environ);
 		perror("execve");
 		free(cmd_path);
-		exit(EXIT_FAILURE); }
+		_exit(EXIT_FAILURE); }
 	else
 	{
 		free(cmd_path);
@@ -92,10 +88,7 @@ int execute_command(char **args)
 		{
 			perror("waitpid");
 			return (1); }
-		}
-	if (WIFEXITED(status))
-		return (WEXITSTATUS(status));
-	return (1);
+		return (WEXITSTATUS(status)); }
 }
 
 /**
@@ -131,8 +124,9 @@ void handle_env(char **args)
 	if (args[1] != NULL)
 		return;
 
-	for (; environ[i]; i++)
+	while (environ[i])
 	{
 		printf("%s\n", environ[i]);
+		i++;
 	}
 }
