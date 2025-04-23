@@ -31,15 +31,6 @@ int main(void)
 		{
 			if (strcmp(args[0], "exit") == 0)
 				handle_exit(args, line, last_status);
-			else if (strcmp(args[0], "which") == 0)
-			{
-				ac = 0;
-				while (args[ac])
-					ac++;
-				if (ac > 1)
-					_which(ac, args);
-				else
-					printf("Usage: which <command1> <command2> ...\n"); }
 			else if (strcmp(args[0], "env") == 0)
 			{
 				handle_env(args); }
