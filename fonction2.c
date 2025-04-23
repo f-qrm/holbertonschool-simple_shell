@@ -73,7 +73,6 @@ int execute_command(char **args)
 	if (pid == -1)
 	{
 		perror("fork");
-		free(cmd_path);
 		return (1); }
 	if (pid == 0)
 	{
