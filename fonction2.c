@@ -73,11 +73,12 @@ int execute_command(char **args, char *shell_name)
 	if (cmd_path == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", shell_name, args[0]);
-		exit (127); }
+		return (127); }
 	pid = fork();
 	if (pid == -1)
 	{
 		perror("fork");
+		free(cmd_path);
 		return (1); }
 	if (pid == 0)
 	{

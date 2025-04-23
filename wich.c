@@ -78,4 +78,3 @@ int _which(int ac, char **av)
 	free(path);
 	return (0);
 }
-
