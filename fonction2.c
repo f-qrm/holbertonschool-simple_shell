@@ -79,21 +79,18 @@ int execute_command(char **args)
 	if (cmd_path == NULL)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
-		free(args);
 		exit(127); }
 	pid = fork();
 	if (pid == -1)
 	{
 		perror("fork");
 		free(cmd_path);
-		free(args);
 		return (1); }
 	if (pid == 0)
 	{
 		execve(cmd_path, args, environ);
 		perror("execve");
 		free(cmd_path);
-		free(args);
 		_exit(EXIT_FAILURE); }
 	else
 	{
@@ -101,9 +98,7 @@ int execute_command(char **args)
 		if (waitpid(pid, &status, 0) == -1)
 		{
 			perror("waitpid");
-			free(args);
 			return (1); }
-			free(args);
 		return (WEXITSTATUS(status)); }
 }
 
