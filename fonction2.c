@@ -40,7 +40,10 @@ char *search_path(char *cmd)
 	token = strtok(copy, ":");
 	while (token)
 	{
-		sprintf(full_path, "%s/%s", token, cmd);
+		if (token[0] == '\0')
+			sprintf(full_path, "./%s", cmd);
+		else
+			sprintf(full_path, "%s/%s", token, cmd);
 		if (access(full_path, X_OK) == 0)
 		{
 			result = malloc(strlen(full_path) + 1);
