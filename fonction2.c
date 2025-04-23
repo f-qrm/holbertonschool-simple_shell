@@ -51,7 +51,7 @@ char *search_path(char *cmd)
  * execute_command - Executes a command by forking and calling execve
  * if the command exists either directly or through PATH resolution
  * @args: Array of command arguments (e.g., {"ls", "-l", NULL})
- *
+ * @shell_name: take the programe name.
  * Return: Nothing. Handles process creation and error messages.
  */
 int execute_command(char **args, char *shell_name)
@@ -92,7 +92,10 @@ int execute_command(char **args, char *shell_name)
 		{
 			perror("waitpid");
 			return (1); }
-		return (WEXITSTATUS(status)); }
+		}
+	if (WIFEXITED(status))
+		return (WEXITSTATUS(status));
+	return (1);
 }
 
 /**
