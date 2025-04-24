@@ -220,6 +220,6 @@ sudo mandb
 <img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/Flowchart%20simple%20shell.drawio%20(1).png" alt="Flowchart simple_shell" width="600"/>
 
 ## 🧑‍💻 Authors
-
-- Fjolla [@Fjolla-github](https://github.com/f-qrm)
-- Alexis [Alexis-github](https://github.com/alexiscnl)
+  github:
+- [Fjolla](https://github.com/f-qrm)
+- [Alexis](https://github.com/alexiscnl)
