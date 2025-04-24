@@ -217,7 +217,7 @@ sudo mandb
 ```
 ## 🔄 Flowchart
 
-<img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/Flowchart%20simple%20shell.drawio.png" alt="Flowchart simple_shell" width="600"/>
+<img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/Flowchart%20simple%20shell.drawio%20(1).png" alt="Flowchart simple_shell" width="600"/>
 
 ## 🧑‍💻 Authors
 
