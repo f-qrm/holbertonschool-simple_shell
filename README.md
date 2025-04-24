@@ -132,11 +132,11 @@ Test the shell in both modes:
 
 ##### Interactive:
 
-<img src="https://raw.githubusercontent.com/f-qrm/holbertonschool-simple_shell/main/Capture%20d'%C3%A9cran%202025-04-22%20094836.png" alt="Non-Interactive Example" width="600"/>
+<img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/output-interacive.png" alt="Non-Interactive Example" width="600"/>
 
 ##### Non-Interactive:
 
-<img src="https://raw.githubusercontent.com/f-qrm/holbertonschool-simple_shell/main/Capture%20d'%C3%A9cran%202025-04-22%20095117.png" alt="Flowchart simple_shell" width="600"/>
+<img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/output-no-interactive.png" alt="Flowchart simple_shell" width="600"/>
 
 
 ## 📚 Learning Objectives
@@ -217,7 +217,7 @@ sudo mandb
 ```
 ## 🔄 Flowchart
 
-<img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/Flowchart%20simple%20shell.drawio%20(1).png" alt="Flowchart simple_shell" width="600"/>
+<img src="https://github.com/f-qrm/holbertonschool-simple_shell/blob/main/flowchart.png" alt="Flowchart simple_shell" width="600"/>
 
 ## 🧑‍💻 Authors
   github:
